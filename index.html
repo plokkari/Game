@@ -107,6 +107,10 @@
             clearInterval(timer);
             const finalTime = (Date.now() - startTime) / 1000;
             alert(`Game over! Your time: ${finalTime.toFixed(3)}s`);
+            if (confirm('Do you want to submit your score?')) {
+                document.getElementById('submit-score').style.display = 'inline';
+                document.getElementById('player-name').style.display = 'inline';
+            }
         }
 
         money.addEventListener('click', () => {
@@ -128,6 +132,8 @@
         });
 
         replayButton.addEventListener('click', () => {
+            document.getElementById('submit-score').style.display = 'none';
+            document.getElementById('player-name').style.display = 'none';
             startGame();
         });
 
